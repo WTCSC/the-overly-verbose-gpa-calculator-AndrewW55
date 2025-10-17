@@ -15,7 +15,20 @@ def gpaAsk(num):
         if gpaList[i] > 4:
             print("Your grade needs to be on the 4 point scale")
             gpaList[i] = float(input(f"Grade for class {i+1}: "))
-    
+
+def again(ans):
+    while True:
+        if str.upper(ans) == "Y":
+            avgNum = 0
+            gpaList = []
+            main()
+        elif str.upper(ans) == "N":
+            quit()
+        else:
+            print("That's not a valid answer")
+            again(input("Try Again?: "))
+            
+
 def main():
     global gpaList
     print("Salutations fine shyt! I hope you have had a splendiferous day!")
@@ -35,13 +48,5 @@ def main():
     else:
         print("Great job!")
         print("This can get you somewhere awesome for college!")
-    ans = input("Want to check again?(Y/N): ")
-    if str.upper(ans) == "Y":
-        avgNum = 0
-        gpaList = []
-        main()
-    elif str.upper(ans) == "N":
-        exit()
-    else:
-        print("That's not a valid answer")
+    again(input("Want to check again?(Y/N): "))
 main()
